@@ -10,6 +10,22 @@ namespace DataManager
 {
     public static class EventValidator
     {
+        public static List<(bool result, string errorMessage)> ValidateAll(List<Event> targets)
+        {
+            List<(bool result, string errorMessage)> resultsReport = new List<(bool result, string errorMessage)>();
+            
+            bool result;
+            string errorMessage;
+
+            foreach (var target in targets)
+            {
+                result = Validate(target, out errorMessage);
+                resultsReport.Add((result, errorMessage));
+            }
+
+            return resultsReport;
+        }
+
         public static bool Validate(Event target, out string errorMessage)
         {
             bool ret = true;
