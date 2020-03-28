@@ -25,7 +25,7 @@ namespace QuickClipboarder
         public MainWindow()
         {
             InitializeComponent();
-            Visibility = System.Windows.Visibility.Collapsed;
+            Visibility = System.Windows.Visibility.Hidden;
             Tray = new Tray(this);
         }
 
