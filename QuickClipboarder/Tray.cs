@@ -16,7 +16,7 @@ namespace QuickClipboarder
         {
             _mainWindow = mainWindow;
             _tray = new NotifyIcon();
-
+            _tray.Icon = Properties.Resources.clipboard_icon;
             _tray.Text = "Tray test";
             _tray.Visible = true;
 
@@ -24,7 +24,6 @@ namespace QuickClipboarder
             _tray.ContextMenuStrip.Items.Clear();
             _tray.ContextMenuStrip.Items.Add("Test");
             _tray.ContextMenuStrip.Items.Add("Test2");
-            _tray.ShowBalloonTip(5000, "Hi!", "Hello World!", ToolTipIcon.Info);
         }
     }
 }
