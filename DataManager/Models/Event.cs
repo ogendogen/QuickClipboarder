@@ -1,6 +1,6 @@
 ﻿using DataManager.Types;
 
-namespace DataManager
+namespace Models
 {
     public class Event
     {

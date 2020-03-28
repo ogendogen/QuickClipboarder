@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataManager
+namespace Models
 {
     public class Config
     {
