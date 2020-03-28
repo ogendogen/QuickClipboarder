@@ -22,8 +22,19 @@ namespace QuickClipboarder
 
             _tray.ContextMenuStrip = new ContextMenuStrip();
             _tray.ContextMenuStrip.Items.Clear();
-            _tray.ContextMenuStrip.Items.Add("Test");
-            _tray.ContextMenuStrip.Items.Add("Test2");
+            _tray.ContextMenuStrip.Items.Add("Menu");
+            _tray.ContextMenuStrip.Items.Add("Konfiguruj", null, new EventHandler(ConfigureClicked));
+            _tray.ContextMenuStrip.Items.Add("Wyjście", null, new EventHandler(ExitClicked));
+        }
+
+        private void ConfigureClicked(object sender, EventArgs e)
+        {
+            _mainWindow.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void ExitClicked(object sender, EventArgs e)
+        {
+            _tray.ShowBalloonTip(5000, "elo", "wychodzę", ToolTipIcon.Info);
         }
     }
 }
