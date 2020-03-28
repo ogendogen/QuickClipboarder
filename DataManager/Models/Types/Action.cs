@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataManager.Types
+namespace Types
 {
     public enum Action
     {

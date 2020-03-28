@@ -1,4 +1,4 @@
-﻿using DataManager.Types;
+﻿using Types;
 
 namespace Models
 {
