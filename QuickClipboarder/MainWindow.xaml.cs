@@ -20,9 +20,11 @@ namespace QuickClipboarder
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Tray Tray { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            Tray = new Tray(this);
         }
     }
 }
