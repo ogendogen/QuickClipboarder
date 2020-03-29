@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System.Collections.Specialized;
 
-namespace ClipboardManager
+namespace Core
 {
     public class Clipboarder
     {
