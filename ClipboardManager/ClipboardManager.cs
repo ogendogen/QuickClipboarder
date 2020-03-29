@@ -7,10 +7,10 @@ using System.Collections.Specialized;
 
 namespace Core
 {
-    public class Clipboarder
+    public class ClipboardManager
     {
         public DataManager.DataManager DataManager { get; set; }
-        public Clipboarder(DataManager.DataManager dataManager)
+        public ClipboardManager(DataManager.DataManager dataManager)
         {
             DataManager = dataManager;
         }
