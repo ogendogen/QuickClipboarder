@@ -22,17 +22,31 @@ namespace QuickClipboarder
     public partial class MainWindow : Window
     {
         public Tray Tray { get; set; }
+        public DataManager.DataManager DataManager { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             Visibility = System.Windows.Visibility.Hidden;
             Tray = new Tray(this);
+            DataManager = new DataManager.DataManager();
+            MainTable.ItemsSource = DataManager.Config.Events;
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataManager.SaveConfig();
+            MessageBox.Show("Konfiguracja zapisana", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }
