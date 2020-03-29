@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace DataManager
+namespace QuickClipboarder
 {
     public class EventValidator : ValidationRule
     {

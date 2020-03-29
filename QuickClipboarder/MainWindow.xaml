@@ -8,7 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DataGrid>
-            <DataGrid.RowValidationRules ValidationStep="EventValidator"/>
+            <DataGrid.RowValidationRules>
+                <DataErrorValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue"/>
+            </DataGrid.RowValidationRules>
         </DataGrid>
     </Grid>
 </Window>
