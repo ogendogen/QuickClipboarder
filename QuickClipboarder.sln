@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickClipboarder", "QuickCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManager", "DataManager\DataManager.csproj", "{C2098154-C58B-4835-A86D-27E4925C98AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipboardManager", "ClipboardManager\ClipboardManager.csproj", "{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "ClipboardManager\Core.csproj", "{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
