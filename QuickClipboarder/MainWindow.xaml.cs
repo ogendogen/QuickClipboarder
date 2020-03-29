@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,18 @@ namespace QuickClipboarder
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Tray Tray { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            Visibility = System.Windows.Visibility.Hidden;
+            Tray = new Tray(this);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Visibility = Visibility.Collapsed;
         }
     }
 }
