@@ -8,19 +8,23 @@ using Newtonsoft.Json.Serialization;
 
 namespace DataManager
 {
-    public static class ConfigManager
+    internal class ConfigManager
     {
-        public static Config LoadConfig(string path)
+        private string _path;
+
+        internal ConfigManager(string path)
         {
-            string json = File.ReadAllText(path);
+            _path = path;
+        }
+        internal Config LoadConfig()
+        {
+            string json = File.ReadAllText(_path);
             return JsonConvert.DeserializeObject<Config>(json);
         }
-
-        public static void SaveConfig(Config config)
+        internal void SaveConfig(Config config)
         {
             string json = JsonConvert.SerializeObject(config);
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "config.json");
-            File.WriteAllText(path, json);
+            File.WriteAllText(_path, json);
         }
     }
 }
