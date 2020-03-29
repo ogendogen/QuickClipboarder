@@ -41,7 +41,7 @@ namespace QuickClipboarder
 
         private void ExitClicked(object sender, EventArgs e)
         {
-            _tray.ShowBalloonTip(5000, "elo", "wychodzę", ToolTipIcon.Info);
+            Environment.Exit(0);
         }
     }
 }
