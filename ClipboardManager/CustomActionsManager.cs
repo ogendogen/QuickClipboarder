@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Core
 {
-    public class CustomActionsManager
+    internal class CustomActionsManager
     {
-        public void OpenURL(string url)
+        internal void OpenURL(string url)
         {
             Process.Start(url);
         }
