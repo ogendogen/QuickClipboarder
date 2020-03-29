@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid>
+        <DataGrid Name="MainTable" Margin="10,10,10,70">
             <DataGrid.RowValidationRules>
                 <DataErrorValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue"/>
             </DataGrid.RowValidationRules>
         </DataGrid>
+        <Button Content="Zapisz" HorizontalAlignment="Left" Margin="200,369,0,0" VerticalAlignment="Top" Height="40" Width="159" Click="Button_Click"/>
+        <Button Content="Minimalizuj" HorizontalAlignment="Left" Margin="453,369,0,0" VerticalAlignment="Top" Height="40" Width="159" Click="Button_Click_1"/>
     </Grid>
 </Window>

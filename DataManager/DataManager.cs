@@ -10,27 +10,35 @@ namespace DataManager
     {
         public Config Config { get; set; }
         internal ConfigManager ConfigManager { get; set; }
-        private string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "QuickClipboarder", "config.json");
+        private string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "QuickClipboarder");
+        private string _configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "QuickClipboarder", "config.json");
         public DataManager()
         {
-            ConfigManager = new ConfigManager(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "QuickClipboarder", "config.json"));
+            ConfigManager = new ConfigManager(_configPath);
 
             if (!IsAppInstalled())
             {
                 InstallApp();
             }
-
+            
             Config = ConfigManager.LoadConfig();
         }
 
         private void InstallApp()
         {
+            Directory.CreateDirectory(_path);
+            Config = new Config();
             ConfigManager.SaveConfig(Config);
         }
 
         private bool IsAppInstalled()
         {
-            return File.Exists(_path);
+            return File.Exists(_configPath);
+        }
+
+        public void SaveConfig()
+        {
+            ConfigManager.SaveConfig(Config);
         }
     }
 }
