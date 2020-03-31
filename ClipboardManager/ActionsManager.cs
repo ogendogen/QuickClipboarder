@@ -10,7 +10,6 @@ namespace Core
     {
         internal ClipboardManager ClipboardManager { get; set; }
         internal CustomActionsManager CustomActionsManager { get; set; }
-        public event EventHandler ItemClickedEvent;
         public DataManager.DataManager DataManager { get; set; }
 
         public ActionsManager(DataManager.DataManager dataManager)
@@ -18,65 +17,37 @@ namespace Core
             DataManager = dataManager;
             ClipboardManager = new ClipboardManager(dataManager);
             CustomActionsManager = new CustomActionsManager();
-            ItemClickedEvent += ActionsManager_ItemClickedEvent;
         }
 
-        private void ActionsManager_ItemClickedEvent(object sender, EventArgs e)
+        public void ItemsHandler(string itemName)
         {
-            ToolStripItem item = sender as ToolStripItem;
-            string name = item.Text;
-            var choosenEvent = DataManager.Config.Events.Where(ev => ev.Name == name).First();
+            var choosenEvent = DataManager.Config.Events.Where(ev => ev.Name == itemName).First();
 
             if (choosenEvent.Action == Types.Action.Copy)
             {
                 switch(choosenEvent.Type)
                 {
                     case Types.Type.Text:
-                        CopyTextToClipboard(choosenEvent.Source);
+                        ClipboardManager.CopyTextToClipboard(choosenEvent.Source);
                         break;
 
                     case Types.Type.Image:
-                        CopyImageToClipboard(choosenEvent.Source);
+                        ClipboardManager.CopyImageToClipboard(choosenEvent.Source);
                         break;
 
                     case Types.Type.File:
-                        CopyFileToClipboard(choosenEvent.Source);
+                        ClipboardManager.CopyFileToClipboard(choosenEvent.Source);
                         break;
 
                     case Types.Type.Url:
-                        CopyURLToClipboard(choosenEvent.Source);
+                        ClipboardManager.CopyURLToClipboard(choosenEvent.Source);
                         break;
                 }
             }
             else if (choosenEvent.Action == Types.Action.Open)
             {
-                OpenURL(choosenEvent.Source);
+                CustomActionsManager.OpenURL(choosenEvent.Source);
             }
-        }
-
-        public void CopyTextToClipboard(string text)
-        {
-            ClipboardManager.CopyTextToClipboard(text);
-        }
-
-        public void CopyImageToClipboard(string path)
-        {
-            ClipboardManager.CopyImageToClipboard(path);
-        }
-
-        public void CopyFileToClipboard(string path)
-        {
-            ClipboardManager.CopyFileToClipboard(path);
-        }
-
-        public void CopyURLToClipboard(string url)
-        {
-            ClipboardManager.CopyURLToClipboard(url);
-        }
-
-        public void OpenURL(string url)
-        {
-            CustomActionsManager.OpenURL(url);
         }
     }
 }

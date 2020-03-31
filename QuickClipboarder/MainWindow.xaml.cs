@@ -8,11 +8,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Core;
 
 namespace QuickClipboarder
 {
@@ -23,13 +25,24 @@ namespace QuickClipboarder
     {
         public Tray Tray { get; set; }
         public DataManager.DataManager DataManager { get; set; }
+        public MenuBuilder MenuBuilder { get; set; }
+        public event EventHandler ClickEvent;
+        public ActionsManager ActionManager { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            Visibility = System.Windows.Visibility.Hidden;
+            Visibility = Visibility.Hidden;
             Tray = new Tray(this);
             DataManager = new DataManager.DataManager();
+            ClickEvent += ItemClickedEvent;
+            MenuBuilder = new MenuBuilder(ClickEvent);
+            ActionManager = new ActionsManager(DataManager);
             MainTable.ItemsSource = DataManager.Config.Events;
+        }
+
+        private void ItemClickedEvent(object sender, EventArgs e)
+        {
+            ActionManager.ItemsHandler((sender as ToolStripItem).Text);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -41,7 +54,7 @@ namespace QuickClipboarder
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataManager.SaveConfig();
-            MessageBox.Show("Konfiguracja zapisana", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Windows.MessageBox.Show("Konfiguracja zapisana", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
