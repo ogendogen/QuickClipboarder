@@ -36,7 +36,7 @@ namespace QuickClipboarder
             DataManager = new DataManager.DataManager();
             ClickEvent += ItemClickedEvent;
             MenuBuilder = new MenuBuilder(ClickEvent, DataManager.Config.Events);
-            Tray.LoadMenuItems(MenuBuilder.Build());
+            Tray.LoadMenuItems(MenuBuilder.Menu);
             ActionManager = new ActionsManager(DataManager);
             MainTable.ItemsSource = DataManager.Config.Events;
             // todo: broken reloading
@@ -56,8 +56,8 @@ namespace QuickClipboarder
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataManager.SaveConfig();
-            ToolStripMenuItem menu = MenuBuilder.Build();
-            Tray.LoadMenuItems(menu);
+            MenuBuilder.Rebuild();
+            Tray.LoadMenuItems(MenuBuilder.Menu);
 
             System.Windows.MessageBox.Show("Konfiguracja zapisana", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
         }

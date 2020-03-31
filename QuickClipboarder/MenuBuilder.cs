@@ -10,31 +10,23 @@ namespace QuickClipboarder
     {
         public List<Event> Events { get; set; }
         public EventHandler ItemClickedEvent { get; set; }
-        public MenuBuilder(EventHandler eventHandler, List<Event> events = null)
+        public ToolStripMenuItem Menu { get; set; }
+        public MenuBuilder(EventHandler eventHandler, List<Event> events)
         {
             Events = new List<Event>();
             ItemClickedEvent = eventHandler;
-            if (events != null)
-            {
-                Events = events;
-            }
+            Events = events;
+            Rebuild();
         }
 
-        public void AddEvents(List<Event> events)
+        public void Rebuild()
         {
-            Events.AddRange(events);
-        }
-
-        public ToolStripMenuItem Build()
-        {
-            ToolStripMenuItem item = new ToolStripMenuItem("Menu");
+            Menu = new ToolStripMenuItem("Menu");
 
             foreach (var eventItem in Events)
             {
-                item.DropDownItems.Add(eventItem.Name, null, ItemClickedEvent);
+                Menu.DropDownItems.Add(eventItem.Name, null, ItemClickedEvent);
             }
-
-            return item;
         }
     }
 }
