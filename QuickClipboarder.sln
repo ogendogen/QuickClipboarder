@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickClipboarder", "QuickClipboarder\QuickClipboarder.csproj", "{439A31BD-D3F6-4976-AE2E-9401D21FECF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickClipboarder", "QuickClipboarder\QuickClipboarder.csproj", "{439A31BD-D3F6-4976-AE2E-9401D21FECF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManager", "DataManager\DataManager.csproj", "{C2098154-C58B-4835-A86D-27E4925C98AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "ClipboardManager\Core.csproj", "{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{439A31BD-D3F6-4976-AE2E-9401D21FECF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{439A31BD-D3F6-4976-AE2E-9401D21FECF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{439A31BD-D3F6-4976-AE2E-9401D21FECF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2098154-C58B-4835-A86D-27E4925C98AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2098154-C58B-4835-A86D-27E4925C98AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2098154-C58B-4835-A86D-27E4925C98AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2098154-C58B-4835-A86D-27E4925C98AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E7F52A-FA1A-4E89-9930-72BE1E3451C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
