@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid Name="MainTable" Margin="10,10,10,70">
             <DataGrid.RowValidationRules>
-                <DataErrorValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue"/>
+                <local:EventValidator ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue"/>
             </DataGrid.RowValidationRules>
         </DataGrid>
         <Button Content="Zapisz" HorizontalAlignment="Left" Margin="200,369,0,0" VerticalAlignment="Top" Height="40" Width="159" Click="Button_Click"/>
