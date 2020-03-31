@@ -29,6 +29,12 @@ namespace QuickClipboarder
             _tray.ContextMenuStrip.Items.Add("Wyjście", null, new EventHandler(ExitClicked));
         }
 
+        public void LoadMenuItems(ToolStripItem items)
+        {
+            _tray.ContextMenuStrip.Items.RemoveAt(0);
+            _tray.ContextMenuStrip.Items.Insert(0, items);
+        }
+
         private void ItemClicked(object sender, EventArgs e)
         {
             MessageBox.Show("Sample action");

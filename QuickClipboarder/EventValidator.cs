@@ -15,7 +15,13 @@ namespace QuickClipboarder
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            Event target = (value as BindingGroup).Items[0] as Event;
+            var items = (value as BindingGroup).Items;
+            if (items.Count == 0)
+            {
+                return ValidationResult.ValidResult;
+            }
+
+            Event target = items[0] as Event;
             
             switch (target.Type)
             {

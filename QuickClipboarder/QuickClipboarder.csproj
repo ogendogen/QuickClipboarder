@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClipboardManager\Core.csproj" />
     <ProjectReference Include="..\DataManager\DataManager.csproj" />
   </ItemGroup>
 
