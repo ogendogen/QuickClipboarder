@@ -10,10 +10,14 @@ namespace QuickClipboarder
     {
         public List<Event> Events { get; set; }
         public EventHandler ItemClickedEvent { get; set; }
-        public MenuBuilder(EventHandler eventHandler)
+        public MenuBuilder(EventHandler eventHandler, List<Event> events = null)
         {
             Events = new List<Event>();
             ItemClickedEvent = eventHandler;
+            if (events != null)
+            {
+                Events = events;
+            }
         }
 
         public void AddEvents(List<Event> events)

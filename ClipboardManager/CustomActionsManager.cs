@@ -9,7 +9,7 @@ namespace Core
     {
         internal void OpenURL(string url)
         {
-            Process.Start(url);
+            Process.Start("explorer.exe", url);
         }
     }
 }
