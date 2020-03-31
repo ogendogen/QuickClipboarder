@@ -25,11 +25,6 @@ namespace QuickClipboarder
             Events.AddRange(events);
         }
 
-        public void Clear()
-        {
-            Events.Clear();
-        }
-
         public ToolStripMenuItem Build()
         {
             ToolStripMenuItem item = new ToolStripMenuItem("Menu");

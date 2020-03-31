@@ -39,6 +39,7 @@ namespace QuickClipboarder
             Tray.LoadMenuItems(MenuBuilder.Build());
             ActionManager = new ActionsManager(DataManager);
             MainTable.ItemsSource = DataManager.Config.Events;
+            // todo: broken reloading
         }
 
         private void ItemClickedEvent(object sender, EventArgs e)
@@ -55,8 +56,6 @@ namespace QuickClipboarder
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataManager.SaveConfig();
-            MenuBuilder.Clear();
-            MenuBuilder.AddEvents(DataManager.Config.Events);
             ToolStripMenuItem menu = MenuBuilder.Build();
             Tray.LoadMenuItems(menu);
 
